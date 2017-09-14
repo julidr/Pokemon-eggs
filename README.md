@@ -47,6 +47,14 @@ Before running the tests make sure you are serving the app via `ng serve`.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Usage
+You can do a few interesting things with this web application, but remember that is really basic and doesn't have any kind of persistence so be sure you save your team JSON.
+### Add Pokémon to your Team
+You can select all kind of Pokémon that you want to hatch, all you need to do is search them by their name and the just click in the add button.
+
+### Manage your Pokémon
+Once you added Pokémon to your team or how i like yo call it, babycrib, then you can edit the Pokémon characteristic to be clear of what exactly you are looking for. Also you can count all the eggs you have hatched. 
+
+To keep information you can download a JSON file wi your team and when you want it you can also upload it.
 ## Author
 
 * [Juliana Diaz](https://github.com/julidr)
