@@ -55,4 +55,8 @@ export class PokemonService {
   getBabyCrib(){
     return this.babyCrib;
   }
+
+  getNatures(){
+    return this.http.get('http://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
+  }
 }

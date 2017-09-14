@@ -26,8 +26,7 @@
       <div class="nav-wrapper">
         <form>
           <div class="input-field">
-            <input #box  [(ngModel)]="babyCribFilter.name" id="search" type="search" class="pokemon-search"
-              name="name" required>
+            <input #box [(ngModel)]="babyCribFilter.name" id="search" type="search" class="pokemon-search" name="name" required>
             <label class="label-icon" for="search"><i class="material-icons i-black">search</i></label>
             <i class="material-icons">close</i>
           </div>
@@ -36,7 +35,8 @@
     </nav>
     <div class="row">
       <div class="input-field col s9 push-s3">
-        <select #t materialize="material_select" [materializeSelectOptions]="sortFields" (change)="selectValue(t.value)" name="sort-field" id="sort-field">
+        <select #t materialize="material_select" [materializeSelectOptions]="sortFields" (change)="selectValue(t.value)" name="sort-field"
+          id="sort-field">
             <option *ngFor="let option of sortFields" [value]="option">{{option}}</option>
         </select>
         <label>Filter By</label>
@@ -80,17 +80,18 @@
                   </div>
                   <div class="col s4">
                     <div class="input-field">
-                      <input placeholder="Placeholder" id="first_name" type="number" [value]="poke.eggsHatched" class="validate">
-                      <label for="first_name">Eggs hatched</label>
+                      <input placeholder="Placeholder" id="eggsHatched" type="number" [(ngModel)]="poke.eggsHatched" [value]="poke.eggsHatched"
+                        class="validate">
+                      <label for="eggsHatched">Eggs hatched</label>
                     </div>
                   </div>
                 </div>
                 <div class="row center">
                   <div class="col s6">
-                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="openModal(poke)"><i class="material-icons">mode_edit</i></a>
+                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="openModal(poke)"><i class="material-icons">mode_edit</i></a>
                   </div>
                   <div class="col s6">
-                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="deletePokemon(poke.position)"><i class="material-icons">delete</i></a>
+                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="deletePokemon(poke.position)"><i class="material-icons">delete</i></a>
                   </div>
                 </div>
               </div>
@@ -102,14 +103,50 @@
   </div>
 </div>
 
- <!-- Modal Structure -->
- <div id="modal1" class="modal" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name">
+<!-- Modal Structure -->
+<div id="modal1" class="modal" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <span class="font-bold">Name: </span>
+            <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name">
+          </div>
+          <div class="input-field col s6">
+            <span class="font-bold">Nature: </span>
+            <select #nat materialize="material_select" [materializeSelectOptions]="natures" [(ngModel)]="pokeEdit.nature" name="natures"
+              id="natures">
+              <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
+          </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4">
+            <p>
+              <input type="checkbox" id="isShiny" [(ngModel)]="pokeEdit.isShiny" name="isShiny" />
+              <label for="isShiny">Shiny?</label>
+            </p>
+          </div>
+          <div class="col s4">
+            <p>
+              <input type="checkbox" id="hatched" [(ngModel)]="pokeEdit.hatched" name="hatched" />
+              <label for="hatched">Hatched?</label>
+            </p>
+          </div>
+          <div class="col s4">
+              <div class="input-field">
+                  <input placeholder="Placeholder" id="eggsHatched" name="eggsHatched" type="number" [(ngModel)]="pokeEdit.eggsHatched" [value]="pokeEdit.eggsHatched"
+                    class="validate">
+                  <label for="eggsHatched">Eggs hatched</label>
+                </div>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="modal-footer">
-      <a  class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+  </div>
 </div>
-          

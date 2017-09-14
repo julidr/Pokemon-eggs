@@ -22,11 +22,15 @@ export class MyEggsComponent implements OnInit {
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
   modalActions1 = new EventEmitter<string|MaterializeAction>();
   params = [];
+  natures: Array<any> = [];
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.babyCrib = this.pokemonService.getBabyCrib();
+    this.pokemonService.getNatures().subscribe(
+      data => this.natures = data
+    );
   }
 
   onKey(value){
@@ -54,7 +58,6 @@ export class MyEggsComponent implements OnInit {
   }
 
   openModal(poke: Pokemon){
-    console.log('click');
     this.pokeEdit = poke;
     this.modalActions1.emit({action:"modal",params:['open']});
   }
