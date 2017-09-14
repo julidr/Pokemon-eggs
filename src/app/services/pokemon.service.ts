@@ -47,7 +47,6 @@ export class PokemonService {
   deletePokemon(pokemonIndex: number){
     for(var i = 0; i<this.babyCrib.length; i++){
       if(this.babyCrib[i].position == pokemonIndex){
-        console.log('encontre: ' + this.babyCrib[i].name + this.babyCrib[i].position);
         this.babyCrib.splice(i,1);
       }
     }
