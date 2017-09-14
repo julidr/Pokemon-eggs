@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Subject } from 'rxjs/Subject';
 import { Pokemon } from './../pokemon';
 
 import 'rxjs/add/operator/map';
@@ -8,7 +7,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PokemonService {
 
-  public newPokemonSubject = new Subject<any>();
+  private babyCrib: Array<Pokemon> = [];
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private http: Http) { }
 
@@ -25,6 +24,10 @@ export class PokemonService {
   }
 
   addPokemon(pokemon: Pokemon){
-    this.newPokemonSubject.next(pokemon);
+    this.babyCrib.push(pokemon);
+  }
+
+  getBabyCrib(){
+    return this.babyCrib;
   }
 }

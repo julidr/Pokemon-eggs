@@ -28,7 +28,6 @@ export class PokemonListComponent implements OnInit {
 
     this.pokemonService.getAllPokemon().subscribe(
       data => {
-        //var pokeArray = [];
         var idValue = 0;
         for(var i=0; i<721; i++){
           idValue = idValue +1;
@@ -37,9 +36,7 @@ export class PokemonListComponent implements OnInit {
             name: data[i].name+'',
             sprite: this.baseSpriteUrl+idValue+'.png'
           }
-          //pokeArray.push(poke);
           this.pokemon.push(poke);
-          //this.pokemon = pokeArray;
         }
       }
     );
@@ -60,13 +57,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   addPokemon(poke: Pokemon){
-    console.log(poke.name);
     this.pokemonService.addPokemon(poke);
-    //this.triggerToast();
-  }
-
-  triggerToast(){
-    this.globalActions.emit('toast')
   }
 
 }

@@ -16,15 +16,7 @@ export class MyEggsComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
-
-    this.pokemonService.newPokemonSubject.subscribe(
-      data => {
-        console.log('click2');
-        console.log(data.id);
-        this.babyCrib.push(data);
-        console.log(this.babyCrib);
-      }
-    );
+    this.babyCrib = this.pokemonService.getBabyCrib();
   }
 
 }
