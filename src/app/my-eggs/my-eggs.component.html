@@ -1,0 +1,16 @@
+<div class="eggs-container">
+  <div class="title center">
+    <div class="row">
+      <div class="col s12">
+        <h3 class="title-my-eggs"> My Eggs </h3>
+      </div>
+    </div>
+  </div>
+  <div class="pokemon-list">
+    <div class="your-list">
+      <div *ngFor="let crib of babyCrib">
+        <p>{{ crib.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="pokemon-container">
+  <div class="title-container center">
+    <h4 class="pokemon-title">Choose your Pokémon Egg</h4>
+  </div>
+  <div class="body-container">
+    <div class="subtitle-container">
+      <h4 class="subtitle">Search</h4>
+      <p class="text-content">
+        The first thing you need to do is search for the Pokémon that you want to hatch, once you find it click the <i class="material-icons">add_circle</i>        icon your Pokémon will be added to a kind of shopping cart, but because we are actually breeding creatures then let's
+        pretend is a baby crib.
+      </p>
+      <p class="text-content">
+        After this you can visit <a routerLink="/eggs">My Eggs</a> to see your Pokémon eggs and also set up the characteristic
+        that you are looking for.
+      </p>
+    </div>
+    <nav>
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field">
+            <input #box (keyup)="onKey(box.value)" [(ngModel)]="pokemonFilter.name" id="search" type="search" class="pokemon-search"
+              name="name" required>
+            <label class="label-icon" for="search"><i class="material-icons i-black">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <div class="pokemon-container" *ngIf="isWriting==true">
+      <div class="pokemon-list">
+        <div class="row">
+          <div class="col s4" *ngFor="let poke of pokemon | filterBy: pokemonFilter">
+            <div class="card">
+              <div class="waves-effect waves-block waves-light center">
+                <img class="responsive-img" src="{{ poke.sprite }}">
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 poke-display">{{ poke.name }}</span>
+                <a (click)="addPokemon(poke)" onclick="Materialize.toast('Pokémon added to your Babycrib', 4000, 'rounded')" class="btn-floating btn-small waves-effect waves-light egg-dot-pink right"><i class="material-icons text-egg-dot-yellow">add</i></a>
+              </div>
+            </div>
+            <!--<img src="{{ poke.sprite }}" alt="" class="reponsive-img">
+            <p>{{poke.name}}</p>-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

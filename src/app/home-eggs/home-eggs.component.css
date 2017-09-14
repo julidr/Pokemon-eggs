@@ -1,0 +1,15 @@
+.welcome-egg{
+    padding-top: 80px;
+    background-color: #ffecd4;
+    
+}
+
+.welcome-egg img{
+    max-height: 300px;
+    margin-bottom: 80px;
+}
+
+.section-egg{
+    clear: both;
+    padding: 0px 300px;
+}

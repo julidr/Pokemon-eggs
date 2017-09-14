@@ -1,0 +1,40 @@
+.title-container{
+    padding-top: 40px;
+    background-color: #ffc8eb;
+    height: 150px;
+}
+
+.body-container{
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+nav {
+    background-color: #fff6de;
+    color: black;
+}
+
+.pokemon-search:focus{
+    border-bottom: 1px solid #ffc8eb !important;
+    box-shadow: 0 1px 0 0 #ffc8eb !important;
+}
+
+.i-black{
+    color: black;
+}
+
+.i-black{
+    color: black;
+}
+
+.poke-display{
+    display: inline-block !important;
+}
+
+.egg-dot-pink{
+    background-color: #ffc8eb;
+}
+
+.text-egg-dot-yellow{
+    color: #fff6de;
+}

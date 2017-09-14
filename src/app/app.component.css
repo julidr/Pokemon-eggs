@@ -1,0 +1,93 @@
+.egg-color{
+    background-color: #fff6de;
+}
+
+.egg-color-dark{
+    background-color: #cdbd83;
+}
+
+.egg-dot-red{
+    background-color: #ff7777;
+}
+
+.text-egg-dot-red{
+    color: #ff7777;
+}
+
+.egg-dot-blue{
+    background-color: #a8feff;
+}
+
+.text-egg-dot-blue{
+    color: #a8feff;;
+}
+
+.egg-dot-green{
+    background-color: #9ccd83;
+}
+
+.egg-dot-violet{
+    background-color: #9fb6ff;
+}
+
+.text-egg-dot-violet{
+    color: #9fb6ff;
+}
+
+.egg-dot-purple{
+    background-color: #e0a3ff;
+}
+
+.text-egg-dot-purple{
+    color: #e0a3ff;
+}
+
+.egg-dot-orange{
+    background-color: #edb08f;
+}
+
+.text-egg-dot-orange{
+    color: #edb08f;
+}
+
+.egg-dot-pink{
+    background-color: #ffc8eb;
+}
+
+.text-egg-dot-pink{
+    color: #ffc8eb;
+}
+
+.text-egg-color{
+    color: #9ccd83 !important;
+}
+
+.text-egg-dot-yellow{
+    color: #fff6de;
+}
+
+.navbar-egg{
+    background-color: #fff6de;
+}
+
+.navbar-egg a {
+    color: #9ccd83;
+}
+
+.navbar-egg ul li a:hover{
+    color: #83b46a;
+}
+
+.img-logo-egg{
+    max-height: 60px;
+}
+
+.img-float-button{
+    max-height: 30px;
+    margin-top: 13px;
+}
+
+.img-float-button-2{
+    max-height: 30px;
+    margin-top: 5px;
+}

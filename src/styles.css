@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: pokemonFont;
+    src: url('./assets/fonts/Pokemon Solid.ttf');
+}
+
+.pokemon-font{
+    font-family: pokemonFont;
+}
+
+.egg-color{
+    background-color: #fff6de;
+}
+
+.egg-color-dark{
+    background-color: #cdbd83;
+}
+
+.egg-dot-red{
+    background-color: #ff7777;
+}
+
+.text-egg-dot-red{
+    color: #ff7777;
+}
+
+.egg-dot-blue{
+    background-color: #a8feff;
+}
+
+.text-egg-dot-blue{
+    color: #a8feff;;
+}
+
+.egg-dot-green{
+    background-color: #9ccd83;
+}
+
+.egg-dot-violet{
+    background-color: #9fb6ff;
+}
+
+.text-egg-dot-violet{
+    color: #9fb6ff;
+}
+
+.egg-dot-purple{
+    background-color: #e0a3ff;
+}
+
+.text-egg-dot-purple{
+    color: #e0a3ff;
+}
+
+.egg-dot-orange{
+    background-color: #edb08f;
+}
+
+.text-egg-dot-orange{
+    color: #edb08f;
+}
+
+.egg-dot-pink{
+    background-color: #ffc8eb;
+}
+
+.text-egg-dot-pink{
+    color: #ffc8eb;
+}
+
+.text-egg-color{
+    color: #9ccd83 !important;
+}
+
+.text-egg-dot-yellow{
+    color: #fff6de;
+}
