@@ -36,7 +36,7 @@
     </nav>
     <div class="row">
       <div class="input-field col s9 push-s3">
-        <select materialize="material_select" [materializeSelectOptions]="sortFields" name="sort-field" id="sort-field">
+        <select #t materialize="material_select" [materializeSelectOptions]="sortFields" (change)="selectValue(t.value)" name="sort-field" id="sort-field">
             <option *ngFor="let option of sortFields" [value]="option">{{option}}</option>
         </select>
         <label>Filter By</label>

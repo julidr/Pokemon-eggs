@@ -12,6 +12,7 @@ import { HomeEggsComponent } from './home-eggs/home-eggs.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 
 import { PokemonService } from './services/pokemon.service';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeEggsComponent},
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
     MyEggsComponent,
     HomeEggsComponent,
     PokemonListComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,

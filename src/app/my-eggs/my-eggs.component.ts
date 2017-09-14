@@ -14,7 +14,7 @@ import { NgIf } from '@angular/common';
 export class MyEggsComponent implements OnInit {
 
   babyCrib: Array<Pokemon> = [];
-  babyCribFilter: any = {name: ''};
+  babyCribFilter: any = {name: '', hatched: ''};
   isWriting: boolean = false;
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
 
@@ -31,6 +31,19 @@ export class MyEggsComponent implements OnInit {
     else {
       this.isWriting= true;
     }
+  }
+
+  selectValue(value: string){
+    if(value=='Hatched'){
+      this.babyCribFilter.hatched = true;
+
+    } else if(value=='Currently Hatching'){
+      this.babyCribFilter.hatched = false;
+    } else {
+      this.babyCribFilter.hatched = '';
+    }
+    console.log(value);
+    console.log(this.babyCribFilter.hatched);
   }
 
 }
