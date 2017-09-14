@@ -16,6 +16,7 @@ export class MyEggsComponent implements OnInit {
   babyCrib: Array<Pokemon> = [];
   babyCribFilter: any = {name: '', hatched: ''};
   isWriting: boolean = false;
+  sortDirection: string = 'asc';
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
 
   constructor(private pokemonService: PokemonService) { }
@@ -42,8 +43,10 @@ export class MyEggsComponent implements OnInit {
     } else {
       this.babyCribFilter.hatched = '';
     }
-    console.log(value);
-    console.log(this.babyCribFilter.hatched);
+  }
+
+  deletePokemon(i: number){
+    this.pokemonService.deletePokemon(i);
   }
 
 }

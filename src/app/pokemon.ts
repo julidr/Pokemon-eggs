@@ -6,5 +6,6 @@ export class Pokemon {
     nature: string;
     eggsHatched: number;
     isShiny: boolean;
+    position: number;
 }
 

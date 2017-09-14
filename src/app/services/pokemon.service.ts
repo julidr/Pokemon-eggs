@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Pokemon } from './../pokemon';
+import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PokemonService {
 
+  private index: number = 0;
+  public newPokemonSubject = new Subject<any>();
   private babyCrib: Array<Pokemon> = [];
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private http: Http) { }
@@ -28,7 +31,26 @@ export class PokemonService {
   }
 
   addPokemon(pokemon: Pokemon){
-    this.babyCrib.push(pokemon);
+    var poke = new Pokemon;
+    poke.name = pokemon.name;
+    poke.id = pokemon.id;
+    poke.sprite = pokemon.sprite;
+    poke.hatched = pokemon.hatched;
+    poke.isShiny = pokemon.isShiny;
+    poke.nature = pokemon.nature;
+    poke.eggsHatched = pokemon.eggsHatched;
+    poke.position = this.index;
+    this.babyCrib.push(poke);
+    this.index = this.index+1;
+  }
+
+  deletePokemon(pokemonIndex: number){
+    for(var i = 0; i<this.babyCrib.length; i++){
+      if(this.babyCrib[i].position == pokemonIndex){
+        console.log('encontre: ' + this.babyCrib[i].name + this.babyCrib[i].position);
+        this.babyCrib.splice(i,1);
+      }
+    }
   }
 
   getBabyCrib(){
