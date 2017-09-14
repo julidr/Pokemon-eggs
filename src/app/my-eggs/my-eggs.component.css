@@ -1,0 +1,52 @@
+.title-container{
+    padding-top: 40px;
+    background-color: #a8feff;
+    height: 150px;
+}
+
+.egg-dot-blue{
+    background-color: #a8feff;
+}
+
+nav {
+    background-color: #fff6de;
+    color: black;
+}
+
+.pokemon-search:focus{
+    border-bottom: 1px solid #a8feff !important;
+    box-shadow: 0 1px 0 0 #a8feff !important;
+}
+
+.i-black{
+    color: black;
+}
+
+.button-container{
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+.button-container-2{
+    margin-top: 20px;
+}
+
+.label-egg{
+    font-weight: bold;
+    color: black;
+}
+
+.poke-display{
+    display: inline-block !important;
+}
+
+.egg-dot-red{
+    background-color: #ff7777;
+}
+
+.text-egg-dot-red{
+    color: #ff7777;
+}
+.text-egg-dot-yellow{
+    color: #fff6de;
+}

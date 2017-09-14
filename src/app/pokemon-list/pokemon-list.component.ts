@@ -34,7 +34,11 @@ export class PokemonListComponent implements OnInit {
           var poke = {
             id: idValue,
             name: data[i].name+'',
-            sprite: this.baseSpriteUrl+idValue+'.png'
+            sprite: this.baseSpriteUrl+idValue+'.png',
+            hatched: false,
+            nature: 'Hardy',
+            eggsHatched: 0,
+            isShiny: false
           }
           this.pokemon.push(poke);
         }

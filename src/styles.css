@@ -8,6 +8,11 @@
     font-family: pokemonFont;
 }
 
+.body-container{
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
 .egg-color{
     background-color: #fff6de;
 }
@@ -74,4 +79,14 @@
 
 .text-egg-dot-yellow{
     color: #fff6de;
+}
+
+.red-chip{
+    background-color: #ff7777 !important;
+    color: #fff6de !important;
+}
+
+.font-bold{
+    font-weight: bold !important;
+    color: black !important;
 }

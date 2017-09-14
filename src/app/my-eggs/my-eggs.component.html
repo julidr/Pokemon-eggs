@@ -1,15 +1,105 @@
 <div class="eggs-container">
-  <div class="title center">
+  <div class="title-container center">
+    <h4 class="title-my-eggs"> My Eggs </h4>
+  </div>
+  <div class="body-container">
+    <div class="subtitle-container">
+      <h4 class="subtitle">Manage your Eggs</h4>
+      <p class="text-content">
+        Here you can manage all the Pokémon that you are currently trying to hatch and the ones that you hatched, you can setup the
+        characteristic that you are looking for, keep a track of how many eggs you haved hatch for that Pokémon and mark
+        when you get it.
+      </p>
+      <p class="text-content">
+        If you don't see any Pokémon in this page, then go to <a routerLink="/pokemon">Add Pokémon</a> to add them, you can
+        also load a JSON file with your Pokémon information by clicking <i class="material-icons">file_upload</i>.<br> You
+        can switch the visible options by selecting what you want to see in the filtering options, also you can search for
+        a specific Pokémon in your babycrib using the search nav. <br> Last but not least important, you can save your Pokémon
+        info in a JSON file and upload it when you need it. To save just click <i class="material-icons">file_download</i>.
+      </p>
+    </div>
+    <div class="button-container">
+      <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons left">file_upload</i>Upload Pokémon List</a>
+      <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons right">file_download</i>Download Pokémon List</a>
+    </div>
+    <nav>
+      <div class="nav-wrapper">
+        <form>
+          <div class="input-field">
+            <input #box (keyup)="onKey(box.value)" [(ngModel)]="babyCribFilter.name" id="search" type="search" class="pokemon-search"
+              name="name" required>
+            <label class="label-icon" for="search"><i class="material-icons i-black">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
     <div class="row">
-      <div class="col s12">
-        <h3 class="title-my-eggs"> My Eggs </h3>
+      <div class="input-field col s9 push-s3">
+        <select materialize="material_select" [materializeSelectOptions]="sortFields" name="sort-field" id="sort-field">
+            <option *ngFor="let option of sortFields" [value]="option">{{option}}</option>
+        </select>
+        <label>Filter By</label>
+      </div>
+      <div class="col s3 pull-s9">
+        <div class="button-container-2">
+          <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons">arrow_upward</i></a>
+          <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons">arrow_downward</i></a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="pokemon-list">
-    <div class="your-list">
-      <div *ngFor="let crib of babyCrib">
-        <p>{{ crib.name }}</p>
+    <div class="pokemon-list">
+      <div class="egg-list">
+        <div class="row">
+          <div class="col s4" *ngFor="let poke of babyCrib">
+            <div class="card">
+              <div class="waves-effect waves-block waves-light center">
+                <img class="responsive-img" src="{{ poke.sprite }}">
+              </div>
+              <div class="card-content">
+                <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}</span>
+                <div class="chip red-chip right">
+                  {{poke.nature}}
+                </div>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <div class="col s4">
+                    <p>
+                      <input type="checkbox" id="test5" *ngIf="poke.isShiny==true" checked="checked" disabled="disabled" />
+                      <input type="checkbox" id="test5" *ngIf="poke.isShiny==false" disabled="disabled" />
+                      <label for="test5">Shiny?</label>
+                    </p>
+                  </div>
+                  <div class="col s4">
+                    <p>
+                      <input type="checkbox" id="test6" *ngIf="poke.hatched==true" checked="checked" disabled="disabled" />
+                      <input type="checkbox" id="test6" *ngIf="poke.hatched==false" disabled="disabled" />
+                      <label for="test6">Hatched?</label>
+                    </p>
+                  </div>
+                  <div class="col s4">
+                    <div class="input-field">
+                      <input placeholder="Placeholder" id="first_name" type="number" [value]="poke.eggsHatched" class="validate">
+                      <label for="first_name">Eggs hatched</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row center">
+                  <div class="col s6">
+                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow"><i class="material-icons">mode_edit</i></a>
+                  </div>
+                  <div class="col s6">
+                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow"><i class="material-icons">delete</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--<img src="{{ poke.sprite }}" alt="" class="reponsive-img">
+                <p>{{poke.name}}</p>-->
+
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -4,11 +4,6 @@
     height: 150px;
 }
 
-.body-container{
-    margin: 0 auto;
-    max-width: 1280px;
-}
-
 nav {
     background-color: #fff6de;
     color: black;
@@ -17,10 +12,6 @@ nav {
 .pokemon-search:focus{
     border-bottom: 1px solid #ffc8eb !important;
     box-shadow: 0 1px 0 0 #ffc8eb !important;
-}
-
-.i-black{
-    color: black;
 }
 
 .i-black{

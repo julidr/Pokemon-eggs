@@ -23,6 +23,10 @@ export class PokemonService {
     return this.http.get('http://pokeapi.co/api/v2/pokemon/'+name).map(res=>res.json().results);
   }
 
+  getPokemonById(id: number){
+    return this.http.get('http://pokeapi.co/api/v2/pokemon/'+id).map(res=>res.json().results);
+  }
+
   addPokemon(pokemon: Pokemon){
     this.babyCrib.push(pokemon);
   }
