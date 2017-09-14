@@ -81,7 +81,9 @@
                   <div class="col s4">
                     <div class="input-field">
                       <input placeholder="Placeholder" id="eggsHatched" type="number" [(ngModel)]="poke.eggsHatched" [value]="poke.eggsHatched"
-                        class="validate">
+                        class="validate" *ngIf="poke.hatched==false">
+                      <input placeholder="Placeholder" id="eggsHatched" type="number" [(ngModel)]="poke.eggsHatched" [value]="poke.eggsHatched"
+                        class="validate" *ngIf="poke.hatched==true" disabled="disabled">
                       <label for="eggsHatched">Eggs hatched</label>
                     </div>
                   </div>
@@ -136,11 +138,13 @@
             </p>
           </div>
           <div class="col s4">
-              <div class="input-field">
-                  <input placeholder="Placeholder" id="eggsHatched" name="eggsHatched" type="number" [(ngModel)]="pokeEdit.eggsHatched" [value]="pokeEdit.eggsHatched"
-                    class="validate">
-                  <label for="eggsHatched">Eggs hatched</label>
-                </div>
+            <div class="input-field">
+              <input placeholder="Placeholder" id="eggsHatched" name="eggsHatched" type="number" [(ngModel)]="pokeEdit.eggsHatched" [value]="pokeEdit.eggsHatched"
+                class="validate" *ngIf="pokeEdit.hatched == false">
+              <input placeholder="Placeholder" id="eggsHatched" name="eggsHatched" type="number" [(ngModel)]="pokeEdit.eggsHatched" [value]="pokeEdit.eggsHatched"
+                class="validate" *ngIf="pokeEdit.hatched == true" disabled="disabled">
+              <label for="eggsHatched">Eggs hatched</label>
+            </div>
           </div>
         </div>
       </form>
