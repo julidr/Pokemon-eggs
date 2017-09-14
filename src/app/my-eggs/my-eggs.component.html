@@ -87,7 +87,7 @@
                 </div>
                 <div class="row center">
                   <div class="col s6">
-                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow"><i class="material-icons">mode_edit</i></a>
+                      <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="openModal(poke)"><i class="material-icons">mode_edit</i></a>
                   </div>
                   <div class="col s6">
                       <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="deletePokemon(poke.position)"><i class="material-icons">delete</i></a>
@@ -95,12 +95,21 @@
                 </div>
               </div>
             </div>
-            <!--<img src="{{ poke.sprite }}" alt="" class="reponsive-img">
-                <p>{{poke.name}}</p>-->
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+ <!-- Modal Structure -->
+ <div id="modal1" class="modal" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name">
+    </div>
+    <div class="modal-footer">
+      <a  class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+          

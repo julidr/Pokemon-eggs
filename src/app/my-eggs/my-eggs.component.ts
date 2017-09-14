@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pokemon } from './../pokemon';
 import { PokemonService } from './../services/pokemon.service';
+import {MaterializeDirective,MaterializeAction} from "angular2-materialize";
 import { Http } from '@angular/http';
 
 import { NgForm } from '@angular/forms';
@@ -15,9 +16,12 @@ export class MyEggsComponent implements OnInit {
 
   babyCrib: Array<Pokemon> = [];
   babyCribFilter: any = {name: '', hatched: ''};
+  pokeEdit: Pokemon = new Pokemon;
   isWriting: boolean = false;
   sortDirection: string = 'asc';
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
+  modalActions1 = new EventEmitter<string|MaterializeAction>();
+  params = [];
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -47,6 +51,12 @@ export class MyEggsComponent implements OnInit {
 
   deletePokemon(i: number){
     this.pokemonService.deletePokemon(i);
+  }
+
+  openModal(poke: Pokemon){
+    console.log('click');
+    this.pokeEdit = poke;
+    this.modalActions1.emit({action:"modal",params:['open']});
   }
 
 }
