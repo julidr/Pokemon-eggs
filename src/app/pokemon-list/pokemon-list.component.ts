@@ -39,7 +39,8 @@ export class PokemonListComponent implements OnInit {
             nature: 'Hardy',
             eggsHatched: 0,
             isShiny: false,
-            position: 0
+            position: 0,
+            specie: data[i].name+''
           }
           this.pokemon.push(poke);
         }

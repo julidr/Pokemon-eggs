@@ -40,6 +40,7 @@ export class PokemonService {
     poke.nature = pokemon.nature;
     poke.eggsHatched = pokemon.eggsHatched;
     poke.position = this.index;
+    poke.specie = pokemon.specie;
     this.babyCrib.push(poke);
     this.index = this.index+1;
   }
