@@ -20,6 +20,7 @@ export class MyEggsComponent implements OnInit {
   isWriting: boolean = false;
   sortDirection: string = 'asc';
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
+  sexFields: Array<string> = ['Female', 'Male'];
   modalActions1 = new EventEmitter<string|MaterializeAction>();
   params = [];
   natures: Array<any> = [];
@@ -50,6 +51,15 @@ export class MyEggsComponent implements OnInit {
       this.babyCribFilter.hatched = false;
     } else {
       this.babyCribFilter.hatched = '';
+    }
+  }
+
+  selectValueSex(value: string){
+    if(value=='Female'){
+      this.pokeEdit.sex=true;
+
+    } else {
+      this.pokeEdit.sex=false;
     }
   }
 
