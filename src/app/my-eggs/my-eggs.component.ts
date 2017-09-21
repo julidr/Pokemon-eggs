@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Pokemon } from './../pokemon';
+import { Pokemon } from './../models/pokemon';
 import { PokemonService } from './../services/pokemon.service';
 import {MaterializeDirective,MaterializeAction} from "angular2-materialize";
 import { Http } from '@angular/http';

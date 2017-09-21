@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterializeDirective, MaterializeAction } from 'angular2-materialize';
 import { D3Service, D3, Selection} from 'd3-ng2-service';
-import { Pokemon } from './../pokemon';
+import { Pokemon } from './../models/pokemon';
 import { PokemonService } from './../services/pokemon.service';
 
 import { NgIf } from '@angular/common';

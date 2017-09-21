@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { PokemonService } from './../services/pokemon.service';
-import { Pokemon } from './../pokemon';
+import { Pokemon } from './../models/pokemon';
 
 import { NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';

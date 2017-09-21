@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Pokemon } from './../pokemon';
+import { Pokemon } from './../models/pokemon';
 import { Subject } from 'rxjs/Subject';
 
 import 'rxjs/add/operator/map';
