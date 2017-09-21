@@ -20,7 +20,7 @@ export class MyEggsComponent implements OnInit {
   isWriting: boolean = false;
   sortDirection: string = 'asc';
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
-  sexFields: Array<string> = ['Female', 'Male'];
+  sexFields: Array<string> = ['Male', 'Female'];
   modalActions1 = new EventEmitter<string|MaterializeAction>();
   params = [];
   natures: Array<any> = [];

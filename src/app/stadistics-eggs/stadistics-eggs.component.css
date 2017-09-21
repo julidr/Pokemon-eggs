@@ -3,3 +3,20 @@
     background-color: #9fb6ff;
     height: 150px;
 }
+
+.button-container{
+    margin-top: 30px;
+    margin-bottom: 35px;
+}
+
+.egg-dot-violet{
+    background-color: #9fb6ff;
+}
+
+.text-egg-dot-violet{
+    color: #9fb6ff;
+}
+
+.text-egg-dot-yellow{
+    color: #fff6de;
+}
