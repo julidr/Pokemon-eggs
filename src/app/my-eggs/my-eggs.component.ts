@@ -24,6 +24,7 @@ export class MyEggsComponent implements OnInit {
   modalActions1 = new EventEmitter<string|MaterializeAction>();
   params = [];
   natures: Array<any> = [];
+  will: any;
 
   constructor(private pokemonService: PokemonService) { }
 
