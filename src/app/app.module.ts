@@ -12,13 +12,16 @@ import { HomeEggsComponent } from './home-eggs/home-eggs.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
 
 import { PokemonService } from './services/pokemon.service';
+import { D3Service } from 'd3-ng2-service';
 import { SortByPipe } from './pipes/sort-by.pipe';
+import { StadisticsEggsComponent } from './stadistics-eggs/stadistics-eggs.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeEggsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'eggs', component: MyEggsComponent},
-  { path: 'pokemon', component: PokemonListComponent}
+  { path: 'pokemon', component: PokemonListComponent},
+  { path: 'stadistics', component: StadisticsEggsComponent}
 ];
 
 @NgModule({
@@ -28,6 +31,7 @@ const appRoutes: Routes = [
     HomeEggsComponent,
     PokemonListComponent,
     SortByPipe,
+    StadisticsEggsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,7 @@ const appRoutes: Routes = [
     Ng2FilterPipeModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

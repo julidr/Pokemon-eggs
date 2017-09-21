@@ -57,7 +57,7 @@
                 <img class="responsive-img" src="{{ poke.sprite }}">
               </div>
               <div class="card-content">
-                <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}</span>
+                <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }} <img src="./../assets/images/male.png" alt="" class="responsive-img" *ngIf="poke.sex==false"><img src="./../assets/images/female.png" alt="" class="responsive-img" *ngIf="poke.sex==true"></span>
                 <div class="chip red-chip right">
                   {{poke.nature}}
                 </div>
@@ -112,11 +112,17 @@
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s4">
             <span class="font-bold">Name: </span>
             <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name">
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s4">
+            <span class="font-bold">Genre: </span>
+            <select #sex name="sex" id="sex" [materializeSelectOptions]="sexFields" [(ngModel)]="pokeEdit.sex" materialize="material_select" (change)="selectValueSex(sex.value)" >
+                <option *ngFor="let option of sexFields" [value]="option">{{option}}</option>
+            </select>
+          </div>
+          <div class="input-field col s4">
             <span class="font-bold">Nature: </span>
             <select #nat materialize="material_select" [materializeSelectOptions]="natures" [(ngModel)]="pokeEdit.nature" name="natures"
               id="natures">

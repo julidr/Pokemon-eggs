@@ -1,0 +1,33 @@
+<div class="stadistics-container">
+  <div class="title-container center">
+    <h4 class="title-stadistics">Stadistics</h4>
+  </div>
+  <div class="body-container">
+    <div class="subtitle-container">
+      <h4 class="subtitle">Whatch your hatching stadistics</h4>
+      <p class="text-content">
+        This space allow you to literally whatch your hatching stadistics, like how many eggs of one Pokémon did you hatch or compare
+        them with other Pokémon. You can also see a global result of all your hatched eggs and maybe other fancy stuff.
+      </p>
+      <p>You have to load your Pokémon team info in <a routerLink="/eggs">My Eggs </a> to see your stadistics.</p>
+    </div>
+    <div class="button-container center">
+      <a class="waves-effect waves-light btn egg-dot-violet" (click)="changeChartValue(1)"><i class="material-icons left text-egg-dot-yellow">insert_chart</i>Number of eggs in Bar Chart</a>
+      <a class="waves-effect waves-light btn egg-dot-violet"><i class="material-icons left text-egg-dot-yellow">pie_chart</i>Number of Eggs in Pie Chart</a>
+      <a class="waves-effect waves-light btn egg-dot-violet"><i class="material-icons left text-egg-dot-yellow">cloud</i>button</a>
+      <a class="waves-effect waves-light btn egg-dot-violet"><i class="material-icons left text-egg-dot-yellow">cloud</i>button</a>
+    </div>
+    <div class="chart-container">
+      <div class="bar-chart-info" [hidden]="!showBarChart">
+        <h5 class="subtitle">Bar Chart by Specie</h5>
+        <p class="text-content">
+          This Bar chart show you the total of Pokémon eggs hatched by specie. You should understand that a specie like is the Pokémon and no the name of the Pokémon. For examaple you could have a Pikachu name Arya but they specie is a Pikachu.
+        </p>
+        <div class="bar-chart center">
+          <svg class="chart" width="960" height="500">
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,5 +7,7 @@ export class Pokemon {
     eggsHatched: number;
     isShiny: boolean;
     position: number;
+    specie: string;
+    sex: boolean;
 }
 
