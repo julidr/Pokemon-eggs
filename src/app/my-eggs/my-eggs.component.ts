@@ -3,6 +3,7 @@ import { Pokemon } from './../models/pokemon';
 import { PokemonService } from './../services/pokemon.service';
 import {MaterializeDirective,MaterializeAction} from "angular2-materialize";
 import { Http } from '@angular/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -25,12 +26,13 @@ export class MyEggsComponent implements OnInit {
   params = [];
   natures: Array<any> = [];
   abilities: Array<any> = [];
+  downloadPokemonJSON: any;
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.babyCrib = this.pokemonService.getBabyCrib();
-    /*var poke = new Pokemon;
+    var poke = new Pokemon;
     poke.name = "Bulbasaur";
     poke.id = 1;
     poke.sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
@@ -42,7 +44,7 @@ export class MyEggsComponent implements OnInit {
     poke.specie = "Bulbasaur";
     poke.sex = false;
     poke.ability = "Clorofilia";
-    this.babyCrib.push(poke)*/
+    this.babyCrib.push(poke);
     if(this.pokemonService.getNaturesList().length == 0){
       this.pokemonService.getNatures().subscribe(
         data => {
@@ -53,10 +55,13 @@ export class MyEggsComponent implements OnInit {
     } else {
       this.natures = this.pokemonService.getNaturesList();
     }
+    this.downloadJson();
   }
 
-  drawRadar(){
-
+  downloadJson(){
+    let pokemonJSON = JSON.stringify(this.babyCrib);
+    let uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(pokemonJSON));
+    this.downloadPokemonJSON = uri;
   }
 
   onKey(value){
