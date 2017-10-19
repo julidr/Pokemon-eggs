@@ -13,6 +13,9 @@ export class PokemonService {
   private babyCrib: Array<Pokemon> = [];
   private pokemonList: Array<Pokemon> = [];
   private naturesList: Array<any> = [];
+  femaleOnlyList: Array<any> = ["blissey", "bounsweet", "chansey", "cresselia", "flabébé", "floette", "florges", "froslass", "happiny", "illumise", "jynx", "kangaskhan", "latias", "lilligant", "mandibuzz", "miltank", "nidoqueen", "nidoran-f", "nidorina", "petilil", "salazzle","smoochum", "steenee", "tsareena", "vespiquen", "vullaby", "wormadam"];
+  maleOnlyList: Array<any> = ["braviary","gallade","hitmonchan","hitmonlee","hitmontop","landorus","latios","mothim","nidoking","nidoran-m","nidorino","rufflet","sawk","tauros","throh","thundurus","tornadus","tyrogue","volbeat"];
+  genderlessList: Array<any> = [];
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private http: Http) { }
 
@@ -79,6 +82,26 @@ export class PokemonService {
 
   getNatures(){
     return this.http.get('https://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
+  }
+
+  getFemaleOnlyList(){
+    return this.femaleOnlyList;
+  }
+
+  getMaleOnlyList(){
+    return this.maleOnlyList;
+  }
+
+  getGenderlessPokemon(){
+    return this.http.get('https://pokeapi.co/api/v2/gender/3/').map(res=>res.json().pokemon_species_details);
+  }
+
+  setGenderlessList(myGenderless: Array<any>){
+    this.genderlessList = myGenderless;
+  }
+
+  getGenderlessList(){
+    return this.genderlessList;
   }
   
 }

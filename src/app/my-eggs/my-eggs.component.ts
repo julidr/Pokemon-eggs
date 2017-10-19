@@ -27,12 +27,17 @@ export class MyEggsComponent implements OnInit {
   natures: Array<any> = [];
   abilities: Array<any> = [];
   downloadPokemonJSON: any;
+  femalePokemon: Array<any> = [];
+  malePokemon: Array<any> = [];
+  genderlessPokemon: Array<any> = [];
 
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.babyCrib = this.pokemonService.getBabyCrib();
-    var poke = new Pokemon;
+    this.femalePokemon = this.pokemonService.getFemaleOnlyList();
+    this.malePokemon = this.pokemonService.getMaleOnlyList();
+    /*var poke = new Pokemon;
     poke.name = "Bulbasaur";
     poke.id = 1;
     poke.sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
@@ -44,7 +49,7 @@ export class MyEggsComponent implements OnInit {
     poke.specie = "Bulbasaur";
     poke.sex = "Male";
     poke.ability = "Clorofilia";
-    this.babyCrib.push(poke);
+    this.babyCrib.push(poke);*/
     if(this.pokemonService.getNaturesList().length == 0){
       this.pokemonService.getNatures().subscribe(
         data => {
@@ -54,6 +59,18 @@ export class MyEggsComponent implements OnInit {
       );
     } else {
       this.natures = this.pokemonService.getNaturesList();
+    }
+    if(this.pokemonService.getGenderlessList().length == 0){
+      this.pokemonService.getGenderlessPokemon().subscribe(
+        data2 => {
+          for(var j = 0; j < 77; j++){
+            this.genderlessPokemon.push(data2[j].pokemon_species.name);
+          }
+          this.pokemonService.setGenderlessList(this.genderlessPokemon);
+        }
+      );
+    } else {
+      this.genderlessPokemon = this.pokemonService.getGenderlessList();
     }
     this.downloadJson();
   }
@@ -84,14 +101,17 @@ export class MyEggsComponent implements OnInit {
     }
   }
 
-  /*selectValueSex(value: string){
-    if(value=='Female'){
-      this.pokeEdit.sex=true;
-
+  getSexFields(name: string){
+    if(this.femalePokemon.includes(name)){
+      return ["Female"];
+    } else if (this.malePokemon.includes(name)){
+      return ["Male"];
+    } else if (this.genderlessPokemon.includes(name)){
+      return ["Genderless"];
     } else {
-      this.pokeEdit.sex=false;
+      return ['Male', 'Female'];
     }
-  }*/
+  }
 
   deletePokemon(i: number){
     this.pokemonService.deletePokemon(i);
@@ -99,6 +119,7 @@ export class MyEggsComponent implements OnInit {
 
   openModal(poke: Pokemon){
     this.pokeEdit = poke;
+    this.sexFields = this.getSexFields(this.pokeEdit.name);
     this.pokemonService.getAbilitiesById(this.pokeEdit.id).subscribe(
       myData => this.abilities = myData 
     );
