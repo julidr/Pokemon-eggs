@@ -18,14 +18,6 @@ import { SortByPipe } from './pipes/sort-by.pipe';
 
 import { routing } from './app.routing';
 
-const appRoutes: Routes = [
-  { path: 'home', component: HomeEggsComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'eggs', component: MyEggsComponent},
-  { path: 'pokemon', component: PokemonListComponent},
-  { path: 'stadistics', component: StadisticsEggsComponent}
-];
-
 @NgModule({
   declarations: [
     AppComponent,

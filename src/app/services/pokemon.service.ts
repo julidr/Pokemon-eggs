@@ -15,7 +15,7 @@ export class PokemonService {
   constructor(private http: Http) { }
 
   getAllPokemon(){
-    return this.http.get('http://pokeapi.co/api/v2/pokemon-species/?limit=721').map(res=>res.json().results);
+    return this.http.get('https://pokeapi.co/api/v2/pokemon-species/?limit=721').map(res=>res.json().results);
   }
 
   getPokemonSprite(number: string){
@@ -23,11 +23,11 @@ export class PokemonService {
   }
   
   getPokemonByName(name: string){
-    return this.http.get('http://pokeapi.co/api/v2/pokemon/'+name).map(res=>res.json().results);
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+name).map(res=>res.json().results);
   }
 
   getPokemonById(id: number){
-    return this.http.get('http://pokeapi.co/api/v2/pokemon/'+id).map(res=>res.json().results);
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+id).map(res=>res.json().results);
   }
 
   addPokemon(pokemon: Pokemon){
@@ -59,6 +59,6 @@ export class PokemonService {
   }
 
   getNatures(){
-    return this.http.get('http://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
+    return this.http.get('https://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
   }
 }
