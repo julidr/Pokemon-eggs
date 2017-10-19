@@ -42,7 +42,7 @@ export class MyEggsComponent implements OnInit {
     poke.eggsHatched = 10;
     poke.position = 1;
     poke.specie = "Bulbasaur";
-    poke.sex = false;
+    poke.sex = "Male";
     poke.ability = "Clorofilia";
     this.babyCrib.push(poke);
     if(this.pokemonService.getNaturesList().length == 0){
@@ -84,14 +84,14 @@ export class MyEggsComponent implements OnInit {
     }
   }
 
-  selectValueSex(value: string){
+  /*selectValueSex(value: string){
     if(value=='Female'){
       this.pokeEdit.sex=true;
 
     } else {
       this.pokeEdit.sex=false;
     }
-  }
+  }*/
 
   deletePokemon(i: number){
     this.pokemonService.deletePokemon(i);

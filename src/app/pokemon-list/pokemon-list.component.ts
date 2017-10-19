@@ -42,7 +42,7 @@ export class PokemonListComponent implements OnInit {
               isShiny: false,
               position: 0,
               specie: data[i].name + '',
-              sex: false,
+              sex: "Male",
               ability: ""
             }
             this.pokemon.push(poke);
