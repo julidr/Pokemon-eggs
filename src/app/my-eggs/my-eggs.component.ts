@@ -43,9 +43,16 @@ export class MyEggsComponent implements OnInit {
     poke.sex = false;
     poke.ability = "Clorofilia";
     this.babyCrib.push(poke)*/
-    this.pokemonService.getNatures().subscribe(
-      data => this.natures = data
-    );
+    if(this.pokemonService.getNaturesList().length == 0){
+      this.pokemonService.getNatures().subscribe(
+        data => {
+          this.natures = data;
+          this.pokemonService.setNaturesList(this.natures);
+        }
+      );
+    } else {
+      this.natures = this.pokemonService.getNaturesList();
+    }
   }
 
   drawRadar(){

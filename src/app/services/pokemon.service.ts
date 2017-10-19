@@ -28,6 +28,14 @@ export class PokemonService {
     return this.pokemonList;
   }
 
+  setNaturesList(allNatures: Array<any>){
+    this.naturesList = allNatures;
+  }
+
+  getNaturesList(){
+    return this.naturesList;
+  }
+
   getPokemonSprite(number: string){
     return this.http.get('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+number+'png');
   }

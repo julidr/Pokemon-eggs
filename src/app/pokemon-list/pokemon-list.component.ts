@@ -29,7 +29,6 @@ export class PokemonListComponent implements OnInit {
     if (this.pokemonService.getPokemonList().length == 0) {
       this.pokemonService.getAllPokemon().subscribe(
         data => {
-          console.log("Empty");
           var idValue = 0;
           for (var i = 0; i < 721; i++) {
             idValue = idValue + 1;
