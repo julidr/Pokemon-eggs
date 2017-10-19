@@ -11,11 +11,21 @@ export class PokemonService {
   private index: number = 0;
   public newPokemonSubject = new Subject<any>();
   private babyCrib: Array<Pokemon> = [];
+  private pokemonList: Array<Pokemon> = [];
+  private naturesList: Array<any> = [];
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private http: Http) { }
 
   getAllPokemon(){
     return this.http.get('https://pokeapi.co/api/v2/pokemon-species/?limit=721').map(res=>res.json().results);
+  }
+
+  setAllPokemon(allPokemon: Array<Pokemon>){
+    this.pokemonList = allPokemon;
+  }
+
+  getPokemonList(){
+    return this.pokemonList;
   }
 
   getPokemonSprite(number: string){

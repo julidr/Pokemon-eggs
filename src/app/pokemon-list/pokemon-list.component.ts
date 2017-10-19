@@ -5,7 +5,7 @@ import { Pokemon } from './../models/pokemon';
 
 import { NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import {MaterializeDirective, MaterializeAction} from 'angular2-materialize';
+import { MaterializeDirective, MaterializeAction } from 'angular2-materialize';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -15,10 +15,10 @@ import {MaterializeDirective, MaterializeAction} from 'angular2-materialize';
 export class PokemonListComponent implements OnInit {
 
   pokemon: Array<Pokemon> = [];
-  pokemonFilter: any = { name: ''};
+  pokemonFilter: any = { name: '' };
   isWriting: boolean = false;
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
-  globalActions = new EventEmitter<string|MaterializeAction>();
+  globalActions = new EventEmitter<string | MaterializeAction>();
 
   constructor(private http: Http,
     private pokemonService: PokemonService,
@@ -26,45 +26,46 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.pokemonService.getAllPokemon().subscribe(
-      data => {
-        var idValue = 0;
-        for(var i=0; i<721; i++){
-          idValue = idValue +1;
-          var poke = {
-            id: idValue,
-            name: data[i].name+'',
-            sprite: this.baseSpriteUrl+idValue+'.png',
-            hatched: false,
-            nature: 'Hardy',
-            eggsHatched: 0,
-            isShiny: false,
-            position: 0,
-            specie: data[i].name+'',
-            sex: false,
-            ability: ""
+    if (this.pokemonService.getPokemonList().length == 0) {
+      this.pokemonService.getAllPokemon().subscribe(
+        data => {
+          console.log("Empty");
+          var idValue = 0;
+          for (var i = 0; i < 721; i++) {
+            idValue = idValue + 1;
+            var poke = {
+              id: idValue,
+              name: data[i].name + '',
+              sprite: this.baseSpriteUrl + idValue + '.png',
+              hatched: false,
+              nature: 'Hardy',
+              eggsHatched: 0,
+              isShiny: false,
+              position: 0,
+              specie: data[i].name + '',
+              sex: false,
+              ability: ""
+            }
+            this.pokemon.push(poke);
           }
-          this.pokemon.push(poke);
+          this.pokemonService.setAllPokemon(this.pokemon);
         }
-      }
-    );
-
+      );
+    } else {
+      this.pokemon = this.pokemonService.getPokemonList();
+    }
   }
 
-  getPokemonByName(name: string) {
-    console.log(name);
-  }
-
-  onKey(value){
-    if(value==''){
+  onKey(value) {
+    if (value == '') {
       this.isWriting = false;
     }
     else {
-      this.isWriting= true;
+      this.isWriting = true;
     }
   }
 
-  addPokemon(poke: Pokemon){
+  addPokemon(poke: Pokemon) {
     this.pokemonService.addPokemon(poke);
   }
 
