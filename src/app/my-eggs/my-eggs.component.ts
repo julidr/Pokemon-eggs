@@ -24,15 +24,32 @@ export class MyEggsComponent implements OnInit {
   modalActions1 = new EventEmitter<string|MaterializeAction>();
   params = [];
   natures: Array<any> = [];
-  will: any;
+  abilities: Array<any> = [];
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
     this.babyCrib = this.pokemonService.getBabyCrib();
+    /*var poke = new Pokemon;
+    poke.name = "Bulbasaur";
+    poke.id = 1;
+    poke.sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
+    poke.hatched = false;
+    poke.isShiny = false;
+    poke.nature = "Bold";
+    poke.eggsHatched = 10;
+    poke.position = 1;
+    poke.specie = "Bulbasaur";
+    poke.sex = false;
+    poke.ability = "Clorofilia";
+    this.babyCrib.push(poke)*/
     this.pokemonService.getNatures().subscribe(
       data => this.natures = data
     );
+  }
+
+  drawRadar(){
+
   }
 
   onKey(value){
@@ -70,6 +87,9 @@ export class MyEggsComponent implements OnInit {
 
   openModal(poke: Pokemon){
     this.pokeEdit = poke;
+    this.pokemonService.getAbilitiesById(this.pokeEdit.id).subscribe(
+      myData => this.abilities = myData 
+    );
     this.modalActions1.emit({action:"modal",params:['open']});
   }
 

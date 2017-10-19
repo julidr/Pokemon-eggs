@@ -50,3 +50,7 @@ nav {
 .text-egg-dot-yellow{
     color: #fff6de;
 }
+
+.stats-list li{
+    display: inline;
+}

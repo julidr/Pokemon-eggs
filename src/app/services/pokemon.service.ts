@@ -26,8 +26,8 @@ export class PokemonService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon/'+name).map(res=>res.json().results);
   }
 
-  getPokemonById(id: number){
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+id).map(res=>res.json().results);
+  getAbilitiesById(id: number){
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+id+'/').map(res=>res.json().abilities);
   }
 
   addPokemon(pokemon: Pokemon){
@@ -42,6 +42,7 @@ export class PokemonService {
     poke.position = this.index;
     poke.specie = pokemon.specie;
     poke.sex = pokemon.sex;
+    poke.ability = pokemon.ability;
     this.babyCrib.push(poke);
     this.index = this.index+1;
   }
@@ -61,4 +62,5 @@ export class PokemonService {
   getNatures(){
     return this.http.get('https://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
   }
+  
 }

@@ -9,5 +9,6 @@ export class Pokemon {
     position: number;
     specie: string;
     sex: boolean;
+    ability: string;
 }
 

@@ -6,28 +6,34 @@
     <div class="subtitle-container">
       <h4 class="subtitle">Manage your Eggs</h4>
       <p class="text-content">
-        Here you can manage all Pokémon that you are currently trying to hatch and the ones that you hatched, you can setup the
-        characteristic that you are looking for, keep a track of how many eggs you haved hatch for that Pokémon and mark
-        when you get it.
+        Here you can manage all Pokémon that you are currently trying to hatch and the ones that you hatched, you can setup the characteristic
+        that you are looking for, keep a track of how many eggs you haved hatch for that Pokémon and mark when you get it.
       </p>
       <p class="text-content">
-        If you don't see any Pokémon in this page, then go to <a routerLink="/pokemon">Add Pokémon</a> to add them, you can
-        also load a JSON file with your Pokémon information by clicking <i class="material-icons">file_upload</i>.<br> You
-        can switch the visible options by selecting what you want to see in the filtering options, also you can search for
-        a specific Pokémon in your babycrib using the search nav. <br> Last but not least important, you can save your Pokémon
-        info in a JSON file and upload it when you need it. To save just click <i class="material-icons">file_download</i>.
+        If you don't see any Pokémon in this page, then go to
+        <a routerLink="/pokemon">Add Pokémon</a> to add them, you can also load a JSON file with your Pokémon information by clicking
+        <i class="material-icons">file_upload</i>.
+        <br> You can switch the visible options by selecting what you want to see in the filtering options, also you can search
+        for a specific Pokémon in your babycrib using the search nav.
+        <br> Last but not least important, you can save your Pokémon info in a JSON file and upload it when you need it. To save
+        just click
+        <i class="material-icons">file_download</i>.
       </p>
     </div>
     <div class="button-container">
-      <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons left">file_upload</i>Upload Pokémon List</a>
-      <a class="waves-effect waves-light btn egg-dot-blue i-black"><i class="material-icons right">file_download</i>Download Pokémon List</a>
+      <a class="waves-effect waves-light btn egg-dot-blue i-black">
+        <i class="material-icons left">file_upload</i>Upload Pokémon List</a>
+      <a class="waves-effect waves-light btn egg-dot-blue i-black">
+        <i class="material-icons right">file_download</i>Download Pokémon List</a>
     </div>
     <nav>
       <div class="nav-wrapper">
         <form>
           <div class="input-field">
             <input #box [(ngModel)]="babyCribFilter.name" id="search" type="search" class="pokemon-search" name="name" required>
-            <label class="label-icon" for="search"><i class="material-icons i-black">search</i></label>
+            <label class="label-icon" for="search">
+              <i class="material-icons i-black">search</i>
+            </label>
             <i class="material-icons">close</i>
           </div>
         </form>
@@ -37,14 +43,18 @@
       <div class="input-field col s9 push-s3">
         <select #t materialize="material_select" [materializeSelectOptions]="sortFields" (change)="selectValue(t.value)" name="sort-field"
           id="sort-field">
-            <option *ngFor="let option of sortFields" [value]="option">{{option}}</option>
+          <option *ngFor="let option of sortFields" [value]="option">{{option}}</option>
         </select>
         <label>Filter By</label>
       </div>
       <div class="col s3 pull-s9">
         <div class="button-container-2">
-          <a class="waves-effect waves-light btn egg-dot-blue i-black" [ngClass]="{'egg-dot-red': sortDirection == 'asc'}" (click)="sortDirection = 'asc'"><i class="material-icons">arrow_upward</i></a>
-          <a class="waves-effect waves-light btn egg-dot-blue i-black" [ngClass]="{'egg-dot-red': sortDirection == 'desc'}" (click)="sortDirection = 'desc'"><i class="material-icons">arrow_downward</i></a>
+          <a class="waves-effect waves-light btn egg-dot-blue i-black" [ngClass]="{'egg-dot-red': sortDirection == 'asc'}" (click)="sortDirection = 'asc'">
+            <i class="material-icons">arrow_upward</i>
+          </a>
+          <a class="waves-effect waves-light btn egg-dot-blue i-black" [ngClass]="{'egg-dot-red': sortDirection == 'desc'}" (click)="sortDirection = 'desc'">
+            <i class="material-icons">arrow_downward</i>
+          </a>
         </div>
       </div>
     </div>
@@ -57,11 +67,35 @@
                 <img class="responsive-img" src="{{ poke.sprite }}">
               </div>
               <div class="card-content">
-                <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }} <img src="./../assets/images/male.png" alt="" class="responsive-img" *ngIf="poke.sex==false"><img src="./../assets/images/female.png" alt="" class="responsive-img" *ngIf="poke.sex==true"></span>
+                <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}
+                  <img src="./../assets/images/male.png" alt="" class="responsive-img" *ngIf="poke.sex==false">
+                  <img src="./../assets/images/female.png" alt="" class="responsive-img" *ngIf="poke.sex==true">
+                </span>
                 <div class="chip red-chip right">
                   {{poke.nature}}
                 </div>
-                <div>{{ poke.specie }}</div>
+                <div class="combat-info">
+                  <div class="row">
+                    <div class="col s6">
+                      <p>
+                        <b>Pokémon: </b> {{ poke.specie }}</p>
+                    </div>
+                    <div class="col s6">
+                      <p>
+                        <b>Ability: </b> {{ poke.ability }}</p>
+                    </div>
+                    <!--<div class="col s12">
+                      <ul class="stats-list">
+                        <li>PS</li>
+                        <li>Attack</li>
+                        <li>Defense</li>
+                        <li>Sp.Attack</li>
+                        <li>Sp.Defense</li>
+                        <li>Speed</li>
+                      </ul>
+                    </div>-->
+                  </div>
+                </div>
               </div>
               <div class="card-action">
                 <div class="row">
@@ -91,10 +125,14 @@
                 </div>
                 <div class="row center">
                   <div class="col s6">
-                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="openModal(poke)"><i class="material-icons">mode_edit</i></a>
+                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="openModal(poke)">
+                      <i class="material-icons">mode_edit</i>
+                    </a>
                   </div>
                   <div class="col s6">
-                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="deletePokemon(poke.position)"><i class="material-icons">delete</i></a>
+                    <a class="waves-effect waves-light btn egg-dot-red text-egg-dot-yellow" (click)="deletePokemon(poke.position)">
+                      <i class="material-icons">delete</i>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -113,22 +151,30 @@
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s4">
+          <div class="input-field col s3">
             <span class="font-bold">Name: </span>
             <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name">
           </div>
-          <div class="input-field col s4">
-            <span class="font-bold">Genre: </span>
-            <select #sex name="sex" id="sex" [materializeSelectOptions]="sexFields" [(ngModel)]="pokeEdit.sex" materialize="material_select" (change)="selectValueSex(sex.value)" >
-                <option *ngFor="let option of sexFields" [value]="option">{{option}}</option>
+          <div class="input-field col s3">
+            <span class="font-bold">Gender: </span>
+            <select #sex name="sex" id="sex" [materializeSelectOptions]="sexFields" [(ngModel)]="pokeEdit.sex" materialize="material_select"
+              (change)="selectValueSex(sex.value)">
+              <option *ngFor="let option of sexFields" [value]="option">{{option}}</option>
             </select>
           </div>
-          <div class="input-field col s4">
+          <div class="input-field col s3">
             <span class="font-bold">Nature: </span>
             <select #nat materialize="material_select" [materializeSelectOptions]="natures" [(ngModel)]="pokeEdit.nature" name="natures"
               id="natures">
               <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
-          </select>
+            </select>
+          </div>
+          <div class="input-field col s3">
+            <span class="font-bold">Ability: </span>
+            <select #abi materialize="material_select" [materializeSelectOptions]="abilities" [(ngModel)]="pokeEdit.ability" name="abilities"
+              id="abilities">
+              <option *ngFor="let option of abilities" [value]="option.ability.name">{{ option.ability.name }}</option>
+            </select>
           </div>
         </div>
         <div class="row">
