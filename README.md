@@ -1,5 +1,6 @@
 # PokemonEggs
-
+[![angularversion](https://img.shields.io/badge/%40angular%2Fcli-1.4.7-orange.svg)](https://github.com/angular/angular-cli)
+[![pokeapiversion](https://img.shields.io/badge/Pokeapi-v2-red.svg)](https://pokeapi.co/)
 <img src="src/assets/images/PokemonEggsLogoMini.png" align="right">
 
 A really simple Angular 2 web application that you can use to manage your Pokémon eggs hatching and see relevant information.
