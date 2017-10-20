@@ -176,7 +176,22 @@
               <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
             </select>
           </div>
-          <div class="input-field col s3">
+          <div class="input-field col s3 center" *ngIf="isLoadingAbilities==true">
+            <div class="preloader-wrapper small active">
+              <div class="spinner-layer spinner-egg-dot-blue">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="input-field col s3" *ngIf="isLoadingAbilities==false">
             <span class="font-bold">Ability: </span>
             <select #abi materialize="material_select" [materializeSelectOptions]="abilities" [(ngModel)]="pokeEdit.ability" name="abilities"
               id="abilities" (change)="downloadJson()">

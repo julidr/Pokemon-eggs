@@ -34,7 +34,7 @@ export class MyEggsComponent implements OnInit {
   femalePokemon: Array<any> = [];
   malePokemon: Array<any> = [];
   genderlessPokemon: Array<any> = [];
-  uploadingJson: boolean = false;
+  isLoadingAbilities: boolean = false;
 
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
@@ -75,6 +75,7 @@ export class MyEggsComponent implements OnInit {
 
   loadJson(value:string){
     this.babyCrib = JSON.parse(value);
+    this.pokemonService.setBabyCrib(this.babyCrib);
     $('#textarea1').val('');
     $('#textarea1').trigger('autoresize');
   }
@@ -117,9 +118,13 @@ export class MyEggsComponent implements OnInit {
 
   openModal(poke: Pokemon){
     this.pokeEdit = poke;
+    this.isLoadingAbilities = true;
     this.sexFields = this.getSexFields(this.pokeEdit.name);
     this.pokemonService.getAbilitiesById(this.pokeEdit.id).subscribe(
-      myData => this.abilities = myData 
+      myData => { 
+        this.abilities = myData;
+        this.isLoadingAbilities = false;
+      }
     );
     this.modalActions1.emit({action:"modal",params:['open']});
   }

@@ -80,6 +80,11 @@ export class PokemonService {
     return this.babyCrib;
   }
 
+  setBabyCrib(myBabyCrib: Array<Pokemon>){
+    this.babyCrib = myBabyCrib;
+    this.index = this.babyCrib.length;
+  }
+
   getNatures(){
     return this.http.get('https://pokeapi.co/api/v2/nature/').map(res=>res.json().results);
   }
