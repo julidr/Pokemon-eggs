@@ -39,6 +39,15 @@ export class MyEggsComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    $(window).on("load resize", () =>{
+      console.log($(window).width());
+      if($(window).width()<=760){
+        $(".natureChip").addClass("col s12 center")
+      }
+      if($(window).width()>760){
+        $(".natureChip").removeClass("col s12 center")
+      }
+    });
     this.babyCrib = this.pokemonService.getBabyCrib();
     this.femalePokemon = this.pokemonService.getFemaleOnlyList();
     this.malePokemon = this.pokemonService.getMaleOnlyList();
