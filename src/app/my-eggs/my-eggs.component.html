@@ -21,10 +21,16 @@
       </p>
     </div>
     <div class="button-container">
-      <a class="waves-effect waves-light btn egg-dot-blue i-black">
+      <a class="waves-effect waves-light btn egg-dot-blue i-black" (click)="loadJson(jsonload.value);">
         <i class="material-icons left">file_upload</i>Upload Pokémon List</a>
       <a class="waves-effect waves-light btn egg-dot-blue i-black" [href]="downloadPokemonJSON" download="myPokemon.json">
         <i class="material-icons right">file_download</i>Download Pokémon List</a>
+    </div>
+    <div class="load-json">
+      <div class="input-field col s12">
+        <textarea #jsonload materialize id="textarea1" class="materialize-textarea"></textarea>
+        <label for="textarea1">Load Pokémon JSON</label>
+      </div>
     </div>
     <nav>
       <div class="nav-wrapper">
@@ -166,7 +172,7 @@
           <div class="input-field col s3">
             <span class="font-bold">Nature: </span>
             <select #nat materialize="material_select" [materializeSelectOptions]="natures" [(ngModel)]="pokeEdit.nature" name="natures"
-              id="natures" (change)="downloadJson()"> 
+              id="natures" (change)="downloadJson()">
               <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
             </select>
           </div>
@@ -181,13 +187,13 @@
         <div class="row">
           <div class="col s4">
             <p>
-              <input type="checkbox" id="isShiny" [(ngModel)]="pokeEdit.isShiny" name="isShiny" (change)="downloadJson()"/>
+              <input type="checkbox" id="isShiny" [(ngModel)]="pokeEdit.isShiny" name="isShiny" (change)="downloadJson()" />
               <label for="isShiny">Shiny?</label>
             </p>
           </div>
           <div class="col s4">
             <p>
-              <input type="checkbox" id="hatched" [(ngModel)]="pokeEdit.hatched" name="hatched" (change)="downloadJson()"/>
+              <input type="checkbox" id="hatched" [(ngModel)]="pokeEdit.hatched" name="hatched" (change)="downloadJson()" />
               <label for="hatched">Hatched?</label>
             </p>
           </div>

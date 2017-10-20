@@ -8,6 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { NgIf } from '@angular/common';
 
+declare var jQuery: any;
+declare var $: any;
+
 @Component({
   selector: 'app-my-eggs',
   templateUrl: './my-eggs.component.html',
@@ -23,6 +26,7 @@ export class MyEggsComponent implements OnInit {
   sortFields: Array<string> = ['All', 'Currently Hatching', 'Hatched'];
   sexFields: Array<string> = ['Male', 'Female'];
   modalActions1 = new EventEmitter<string|MaterializeAction>();
+  textAreaActions = new EventEmitter<string|MaterializeAction>();
   params = [];
   natures: Array<any> = [];
   abilities: Array<any> = [];
@@ -30,6 +34,7 @@ export class MyEggsComponent implements OnInit {
   femalePokemon: Array<any> = [];
   malePokemon: Array<any> = [];
   genderlessPokemon: Array<any> = [];
+  uploadingJson: boolean = false;
 
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
@@ -37,19 +42,6 @@ export class MyEggsComponent implements OnInit {
     this.babyCrib = this.pokemonService.getBabyCrib();
     this.femalePokemon = this.pokemonService.getFemaleOnlyList();
     this.malePokemon = this.pokemonService.getMaleOnlyList();
-    /*var poke = new Pokemon;
-    poke.name = "Bulbasaur";
-    poke.id = 1;
-    poke.sprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png";
-    poke.hatched = false;
-    poke.isShiny = false;
-    poke.nature = "Bold";
-    poke.eggsHatched = 10;
-    poke.position = 1;
-    poke.specie = "Bulbasaur";
-    poke.sex = "Male";
-    poke.ability = "Clorofilia";
-    this.babyCrib.push(poke);*/
     if(this.pokemonService.getNaturesList().length == 0){
       this.pokemonService.getNatures().subscribe(
         data => {
@@ -79,6 +71,12 @@ export class MyEggsComponent implements OnInit {
     let pokemonJSON = JSON.stringify(this.babyCrib);
     let uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(pokemonJSON));
     this.downloadPokemonJSON = uri;
+  }
+
+  loadJson(value:string){
+    this.babyCrib = JSON.parse(value);
+    $('#textarea1').val('');
+    $('#textarea1').trigger('autoresize');
   }
 
   onKey(value){
