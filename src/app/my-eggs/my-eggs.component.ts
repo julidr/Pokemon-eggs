@@ -128,7 +128,7 @@ export class MyEggsComponent implements OnInit {
   openModal(poke: Pokemon){
     this.pokeEdit = poke;
     this.isLoadingAbilities = true;
-    this.sexFields = this.getSexFields(this.pokeEdit.name);
+    this.sexFields = this.getSexFields(this.pokeEdit.specie);
     this.pokemonService.getAbilitiesById(this.pokeEdit.id).subscribe(
       myData => { 
         this.abilities = myData;
