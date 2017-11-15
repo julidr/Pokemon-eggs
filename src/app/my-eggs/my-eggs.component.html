@@ -67,7 +67,7 @@
     <div class="pokemon-list">
       <div class="egg-list">
         <div class="row">
-          <div class="col s4 m4 l4" *ngFor="let poke of babyCrib | filterBy: babyCribFilter | sortBy: ['name', sortDirection]">
+          <div class="col s12 m4 l4" *ngFor="let poke of babyCrib | filterBy: babyCribFilter | sortBy: ['name', sortDirection]">
             <div class="card">
               <div class="waves-effect waves-block waves-light center">
                 <img class="responsive-img" src="{{ poke.sprite }}">
@@ -154,29 +154,29 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal" materialize="modal" [materializeParams]="model1Params" [materializeActions]="modalActions1">
   <div class="modal-content">
-    <h4>Modal Header</h4>
+    <h4>Edit {{pokeEdit.name}}</h4>
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s3">
+          <div class="input-field col s6 m3 l3">
             <span class="font-bold">Name: </span>
             <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name" (change)="downloadJson()">
           </div>
-          <div class="input-field col s3">
+          <div class="input-field col s6 m3 l3">
             <span class="font-bold">Gender: </span>
             <select #sex name="sex" id="sex" [materializeSelectOptions]="sexFields" [(ngModel)]="pokeEdit.sex" materialize="material_select"
               (change)="downloadJson()">
               <option *ngFor="let option of sexFields" [value]="option">{{option}}</option>
             </select>
           </div>
-          <div class="input-field col s3">
+          <div class="input-field col s12 m3 l3">
             <span class="font-bold">Nature: </span>
             <select #nat materialize="material_select" [materializeSelectOptions]="natures" [(ngModel)]="pokeEdit.nature" name="natures"
               id="natures" (change)="downloadJson()">
               <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
             </select>
           </div>
-          <div class="input-field col s3 center" *ngIf="isLoadingAbilities==true">
+          <div class="input-field col s12 m3 l3 center" *ngIf="isLoadingAbilities==true">
             <div class="preloader-wrapper small active">
               <div class="spinner-layer spinner-egg-dot-blue">
                 <div class="circle-clipper left">
@@ -191,7 +191,7 @@
               </div>
             </div>
           </div>
-          <div class="input-field col s3" *ngIf="isLoadingAbilities==false">
+          <div class="input-field col s12 m3 l3" *ngIf="isLoadingAbilities==false">
             <span class="font-bold">Ability: </span>
             <select #abi materialize="material_select" [materializeSelectOptions]="abilities" [(ngModel)]="pokeEdit.ability" name="abilities"
               id="abilities" (change)="downloadJson()">
@@ -200,19 +200,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s4">
+          <div class="col s6 m4 l4">
             <p>
               <input type="checkbox" id="isShiny" [(ngModel)]="pokeEdit.isShiny" name="isShiny" (change)="downloadJson()" />
               <label for="isShiny">Shiny?</label>
             </p>
           </div>
-          <div class="col s4">
+          <div class="col s6 m4 l4">
             <p>
               <input type="checkbox" id="hatched" [(ngModel)]="pokeEdit.hatched" name="hatched" (change)="downloadJson()" />
               <label for="hatched">Hatched?</label>
             </p>
           </div>
-          <div class="col s4">
+          <div class="col s12 m4 l4">
             <div class="input-field">
               <input placeholder="Placeholder" id="eggsHatched" name="eggsHatched" type="number" [(ngModel)]="pokeEdit.eggsHatched" [value]="pokeEdit.eggsHatched"
                 class="validate" *ngIf="pokeEdit.hatched == false" (change)="downloadJson()">
