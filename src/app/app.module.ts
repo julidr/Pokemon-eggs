@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
@@ -30,7 +30,7 @@ import { routing } from './app.routing';
   imports: [
     BrowserModule,
     MaterializeModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     Ng2FilterPipeModule,
     routing,
