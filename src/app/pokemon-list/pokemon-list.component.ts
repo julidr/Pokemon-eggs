@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { PokemonService } from './../services/pokemon.service';
 import { Pokemon } from './../models/pokemon';
 
@@ -23,7 +23,7 @@ export class PokemonListComponent implements OnInit {
   malePokemonList: Array<any> = [];
   genderlessPokemonList: Array<any> = [];
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
     private pokemonService: PokemonService,
   ) { }
 

@@ -15,8 +15,8 @@ export class StadisticsEggsComponent implements OnInit {
 
   private d3: D3;
   private pokeInfo: Array<Pokemon> = [];
-  private showBarChart = false;
-  private isShowBarDraw = false;
+  public showBarChart = false;
+  public isShowBarDraw = false;
 
   constructor(d3Service: D3Service, private pokemonService: PokemonService) {
     this.d3 = d3Service.getD3();
