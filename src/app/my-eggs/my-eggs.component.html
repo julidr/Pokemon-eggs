@@ -71,7 +71,9 @@
             <div class="card">
               <div class="waves-effect waves-block waves-light center" >
                 <ng-container *ngFor="let form of poke.forms">
-                  <img class="responsive-img" src="{{ form.sprites.normal }}" *ngIf="form.active">
+                  <ng-container *ngIf="form.active">
+                    <img class="responsive-img" src="{{ form.sprites.normal }}" >
+                  </ng-container>
                 </ng-container>
               </div>
               <div class="card-content center">
@@ -178,9 +180,18 @@
     <div class="row">
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s6 m3 l3">
+          <div class="input-field col s12 m12 l12">
             <span class="font-bold">Name: </span>
             <input [(ngModel)]="pokeEdit.name" name="name" [value]="pokeEdit.name" (change)="downloadJson()">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m3 l3">
+            <span class="font-bold">Form: </span>
+            <select #pokeForm name="pokeForm" id="pokeForm" [materializeSelectOptions]="formFields" [(ngModel)]="selectedRegion" materialize="material_select"
+              (change)="updateForms()">
+              <option *ngFor="let option of formFields" [value]="option.region">{{option.region}}</option>
+            </select>
           </div>
           <div class="input-field col s6 m3 l3">
             <span class="font-bold">Gender: </span>

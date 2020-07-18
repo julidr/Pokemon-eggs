@@ -1,14 +1,8 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pokemon } from './../models/pokemon';
 import { PokemonService } from './../services/pokemon.service';
-import { MaterializeDirective, MaterializeAction } from "angular2-materialize";
-import { HttpClient } from '@angular/common/http';
+import { MaterializeAction } from "angular2-materialize";
 import { DomSanitizer } from '@angular/platform-browser';
-
-import { NgForm } from '@angular/forms';
-import { NgIf } from '@angular/common';
-
-declare var jQuery: any;
 declare var $: any;
 
 @Component({
@@ -30,10 +24,12 @@ export class MyEggsComponent implements OnInit {
   params = [];
   natures: Array<any> = [];
   abilities: Array<any> = [];
+  formFields: Array<any> = [];
   downloadPokemonJSON: any;
   femalePokemon: Array<any> = [];
   malePokemon: Array<any> = [];
   genderlessPokemon: Array<any> = [];
+  selectedRegion: string;
 
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
@@ -80,6 +76,24 @@ export class MyEggsComponent implements OnInit {
     this.downloadPokemonJSON = uri;
   }
 
+  updateForms() {
+    console.log(this.selectedRegion);
+    console.log(this.formFields);
+    let previousActive = 0;
+    let newActive = 0;
+    for (let i = 0; i < this.formFields.length; i++) {
+      if (this.formFields[i]['active'] == true) {
+        previousActive = i;
+      }
+      if (this.formFields[i]['region'] == this.selectedRegion) {
+        newActive = i;
+      }
+    }
+    this.formFields[previousActive]['active'] = false;
+    this.formFields[newActive]['active'] = true;
+    this.downloadJson();
+  }
+
   loadJson(value: string) {
     this.babyCrib = JSON.parse(value);
     this.pokemonService.setBabyCrib(this.babyCrib);
@@ -119,6 +133,14 @@ export class MyEggsComponent implements OnInit {
     }
   }
 
+  getActiveRegion() {
+    for (let i = 0; i < this.formFields.length; i++) {
+      if (this.formFields[i]['active'] == true) {
+        return this.formFields[i]['region']
+      }
+    }
+  }
+
   deletePokemon(i: number) {
     this.pokemonService.deletePokemon(i);
   }
@@ -127,6 +149,8 @@ export class MyEggsComponent implements OnInit {
     this.pokeEdit = poke;
     this.sexFields = this.getSexFields(this.pokeEdit.specie);
     this.abilities = this.pokeEdit.abilities;
+    this.formFields = this.pokeEdit.forms;
+    this.selectedRegion = this.getActiveRegion();
     this.modalActions1.emit({ action: "modal", params: ['open'] });
   }
 
