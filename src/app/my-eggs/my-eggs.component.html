@@ -72,12 +72,22 @@
               <div class="waves-effect waves-block waves-light center">
                 <img class="responsive-img" src="{{ poke.sprite }}">
               </div>
-              <div class="card-content">
+              <div class="card-content center">
                 <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}
-                  <img src="./../assets/images/male.png" alt="" class="responsive-img" *ngIf="poke.sex=='Male'">
-                  <img src="./../assets/images/female.png" alt="" class="responsive-img" *ngIf="poke.sex=='Female'">
-                  <img src="./../assets/images/genderless.png" alt="" class="responsive-img" *ngIf="poke.sex=='Genderless'">
+                  <img src="./../assets/images/gender-icons/male.png" alt="" class="responsive-img" *ngIf="poke.sex=='Male'">
+                  <img src="./../assets/images/gender-icons/female.png" alt="" class="responsive-img" *ngIf="poke.sex=='Female'">
+                  <img src="./../assets/images/gender-icons/genderless.png" alt="" class="responsive-img" *ngIf="poke.sex=='Genderless'">
                 </span>
+                <div class="types">
+                  <div class="row">
+                    <div class="col s6 m6 l6" [ngClass]="{'s12 m12 l12': poke.type2==''}">
+                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.type1}}.png">
+                    </div>
+                    <div class="col s6 m6 l6" *ngIf="poke.type2!=''">
+                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.type2}}.png">
+                    </div>
+                  </div>
+                </div>
                 <div class="chip red-chip right natureChip">
                   {{poke.nature}}
                 </div>
@@ -180,26 +190,11 @@
               <option *ngFor="let option of natures" [value]="option.name">{{option.name}}</option>
             </select>
           </div>
-          <div class="input-field col s12 m3 l3 center" *ngIf="isLoadingAbilities==true">
-            <div class="preloader-wrapper small active">
-              <div class="spinner-layer spinner-egg-dot-blue">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div>
-                <div class="gap-patch">
-                  <div class="circle"></div>
-                </div>
-                <div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="input-field col s12 m3 l3" *ngIf="isLoadingAbilities==false">
+          <div class="input-field col s12 m3 l3">
             <span class="font-bold">Ability: </span>
             <select #abi materialize="material_select" [materializeSelectOptions]="abilities" [(ngModel)]="pokeEdit.ability" name="abilities"
               id="abilities" (change)="downloadJson()">
-              <option *ngFor="let option of abilities" [value]="option.ability.name">{{ option.ability.name }}</option>
+              <option *ngFor="let ability of abilities" [value]="ability">{{ ability }}</option>
             </select>
           </div>
         </div>

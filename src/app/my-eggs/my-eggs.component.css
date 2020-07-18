@@ -58,3 +58,7 @@ nav {
 .stats-list li{
     display: inline;
 }
+
+.poke-type {
+    width: 100px;
+}

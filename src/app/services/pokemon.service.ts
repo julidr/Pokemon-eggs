@@ -13,14 +13,14 @@ export class PokemonService {
   private babyCrib: Array<Pokemon> = [];
   private pokemonList: Array<Pokemon> = [];
   private naturesList: Array<any> = [];
-  femaleOnlyList: Array<any> = ["blissey", "bounsweet", "chansey", "cresselia", "flabébé", "floette", "florges", "froslass", "happiny", "illumise", "jynx", "kangaskhan", "latias", "lilligant", "mandibuzz", "miltank", "nidoqueen", "nidoran-f", "nidorina", "petilil", "salazzle", "smoochum", "steenee", "tsareena", "vespiquen", "vullaby", "wormadam"];
+  femaleOnlyList: Array<any> = ["blissey", "bounsweet", "chansey", "cresselia", "flabebe", "floette", "florges", "froslass", "happiny", "illumise", "jynx", "kangaskhan", "latias", "lilligant", "mandibuzz", "miltank", "nidoqueen", "nidoran-f", "nidorina", "petilil", "salazzle", "smoochum", "steenee", "tsareena", "vespiquen", "vullaby", "wormadam"];
   maleOnlyList: Array<any> = ["braviary", "gallade", "hitmonchan", "hitmonlee", "hitmontop", "landorus", "latios", "mothim", "nidoking", "nidoran-m", "nidorino", "rufflet", "sawk", "tauros", "throh", "thundurus", "tornadus", "tyrogue", "volbeat"];
   genderlessList: Array<any> = [];
   private baseSpriteUrl: string = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
   constructor(private http: HttpClient) { }
 
   getAllPokemon() {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon-species/?limit=721', { responseType: 'json' }).map(res => res['results']);
+    return this.http.get('https://pokeapi.co/api/v2/pokemon-species/?limit=807', { responseType: 'json' }).map(res => res['results']);
   }
 
   setAllPokemon(allPokemon: Array<Pokemon>) {
@@ -39,16 +39,8 @@ export class PokemonService {
     return this.naturesList;
   }
 
-  getPokemonSprite(number: string) {
-    return this.http.get('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + number + 'png');
-  }
-
-  getPokemonByName(name: string) {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + name).map(res => res['results']);
-  }
-
-  getAbilitiesById(id: number) {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id + '/').map(res => res['abilities']);
+  getPokemonById(id: number) {
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id);
   }
 
   addPokemon(pokemon: Pokemon) {
@@ -64,6 +56,9 @@ export class PokemonService {
     poke.specie = pokemon.specie;
     poke.sex = pokemon.sex;
     poke.ability = pokemon.ability;
+    poke.abilities = pokemon.abilities;
+    poke.type1 = pokemon.type1,
+    poke.type2 = pokemon.type2
     this.babyCrib.push(poke);
     this.index = this.index + 1;
   }

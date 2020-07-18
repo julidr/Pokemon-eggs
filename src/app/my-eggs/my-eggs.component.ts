@@ -34,7 +34,6 @@ export class MyEggsComponent implements OnInit {
   femalePokemon: Array<any> = [];
   malePokemon: Array<any> = [];
   genderlessPokemon: Array<any> = [];
-  isLoadingAbilities: boolean = false;
 
   constructor(private pokemonService: PokemonService, private sanitizer: DomSanitizer) { }
 
@@ -49,6 +48,7 @@ export class MyEggsComponent implements OnInit {
       }
     });
     this.babyCrib = this.pokemonService.getBabyCrib();
+    console.log(this.babyCrib);
     this.femalePokemon = this.pokemonService.getFemaleOnlyList();
     this.malePokemon = this.pokemonService.getMaleOnlyList();
     if (this.pokemonService.getNaturesList().length == 0) {
@@ -127,14 +127,8 @@ export class MyEggsComponent implements OnInit {
 
   openModal(poke: Pokemon) {
     this.pokeEdit = poke;
-    this.isLoadingAbilities = true;
     this.sexFields = this.getSexFields(this.pokeEdit.specie);
-    this.pokemonService.getAbilitiesById(this.pokeEdit.id).subscribe(
-      myData => {
-        this.abilities = myData;
-        this.isLoadingAbilities = false;
-      }
-    );
+    this.abilities = this.pokeEdit.abilities;
     this.modalActions1.emit({ action: "modal", params: ['open'] });
   }
 
