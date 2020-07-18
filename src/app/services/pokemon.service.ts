@@ -43,11 +43,14 @@ export class PokemonService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id);
   }
 
+  getPokemonForms() {
+    return this.http.get('./../assets/data/pokemonForms.json');
+  }
+
   addPokemon(pokemon: Pokemon) {
     var poke = new Pokemon;
     poke.name = pokemon.name;
     poke.id = pokemon.id;
-    poke.sprite = pokemon.sprite;
     poke.hatched = pokemon.hatched;
     poke.isShiny = pokemon.isShiny;
     poke.nature = pokemon.nature;
@@ -57,8 +60,7 @@ export class PokemonService {
     poke.sex = pokemon.sex;
     poke.ability = pokemon.ability;
     poke.abilities = pokemon.abilities;
-    poke.type1 = pokemon.type1,
-    poke.type2 = pokemon.type2
+    poke.forms = pokemon.forms
     this.babyCrib.push(poke);
     this.index = this.index + 1;
   }

@@ -1,0 +1,218 @@
+{
+    "rattata": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/19-alola.png",
+                "female": ""
+            },
+            "type1": "dark",
+            "type2": "normal"
+        }
+    ],
+    "raticate": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/20-alola.png",
+                "female": ""
+            },
+            "type1": "dark",
+            "type2": "normal"
+        }
+    ],
+    "raichu": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/26-alola.png",
+                "female": ""
+            },
+            "type1": "electric",
+            "type2": "psychic"
+        }
+    ],
+    "sandshrew": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/27-alola.png",
+                "female": ""
+            },
+            "type1": "ice",
+            "type2": "steel"
+        }
+    ],
+    "sandslash": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/28-alola.png",
+                "female": ""
+            },
+            "type1": "ice",
+            "type2": "steel"
+        }
+    ],
+    "vulpix": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/37-alola.png",
+                "female": ""
+            },
+            "type1": "ice",
+            "type2": ""
+        }
+    ],
+    "ninetales": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/38-alola.png",
+                "female": ""
+            },
+            "type1": "ice",
+            "type2": "fairy"
+        }
+    ],
+    "diglett": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/50-alola.png",
+                "female": ""
+            },
+            "type1": "ground",
+            "type2": "steel"
+        }
+    ],
+    "dugtrio": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/51-alola.png",
+                "female": ""
+            },
+            "type1": "ground",
+            "type2": "steel"
+        }
+    ],
+    "meowth": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/52-alola.png",
+                "female": ""
+            },
+            "type1": "dark",
+            "type2": ""
+        }
+    ],
+    "persian": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/53-alola.png",
+                "female": ""
+            },
+            "type1": "dark",
+            "type2": ""
+        }
+    ],
+    "geodude": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/74-alola.png",
+                "female": ""
+            },
+            "type1": "rock",
+            "type2": "electric"
+        }
+    ],
+    "graveler": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/75-alola.png",
+                "female": ""
+            },
+            "type1": "rock",
+            "type2": "electric"
+        }
+    ],
+    "golem": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/76-alola.png",
+                "female": ""
+            },
+            "type1": "rock",
+            "type2": "electric"
+        }
+    ],
+    "grimer": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/88-alola.png",
+                "female": ""
+            },
+            "type1": "poison",
+            "type2": "dark"
+        }
+    ],
+    "muk": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/89-alola.png",
+                "female": ""
+            },
+            "type1": "poison",
+            "type2": "dark"
+        }
+    ],
+    "exeggutor": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/103-alola.png",
+                "female": ""
+            },
+            "type1": "grass",
+            "type2": "dragon"
+        }
+    ],
+    "marowak": [
+        {
+            "region": "alola",
+            "sprites": {
+                "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105-alola.png",
+                "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/105-alola.png",
+                "female": ""
+            },
+            "type1": "fire",
+            "type2": "ghost"
+        }
+    ]
+}

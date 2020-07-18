@@ -39,7 +39,6 @@ export class MyEggsComponent implements OnInit {
 
   ngOnInit() {
     $(window).on("load resize", () => {
-      console.log($(window).width());
       if ($(window).width() <= 760) {
         $(".natureChip").addClass("col s12 center")
       }
@@ -48,7 +47,6 @@ export class MyEggsComponent implements OnInit {
       }
     });
     this.babyCrib = this.pokemonService.getBabyCrib();
-    console.log(this.babyCrib);
     this.femalePokemon = this.pokemonService.getFemaleOnlyList();
     this.malePokemon = this.pokemonService.getMaleOnlyList();
     if (this.pokemonService.getNaturesList().length == 0) {

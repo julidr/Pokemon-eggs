@@ -4,6 +4,7 @@ import { PokemonService } from './../services/pokemon.service';
 import { Pokemon } from './../models/pokemon';
 
 import { MaterializeAction } from 'angular2-materialize';
+import { PokemonForm } from 'app/models/pokemonForm';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -49,23 +50,21 @@ export class PokemonListComponent implements OnInit {
                 if (this.genderlessPokemonList.includes(data[i].name + '')) {
                   gender = "Genderless";
                 }
-                this.pokemonService.getPokemonById((i+1)).subscribe(
+                this.pokemonService.getPokemonById((i + 1)).subscribe(
                   data3 => {
                     var poke = {
                       id: data3['id'],
-                      name: data3['species'].name + '',
-                      sprite: data3['sprites'].front_default,
+                      name: data3['species'].name,
                       hatched: false,
                       nature: 'Hardy',
                       eggsHatched: 0,
                       isShiny: false,
                       position: 0,
-                      specie: data3['species'].name + '',
+                      specie: data3['species'].name,
                       sex: gender,
                       ability: "",
                       abilities: this.getAbilitiesName(data3['abilities']),
-                      type1: data3['types'][0].type.name,
-                      type2: data3['types'][1] == undefined ? "" : data3['types'][1].type.name
+                      forms: this.getPokemonForms(data3['species'].name, data3['sprites'], data3['types'])
                     }
                     this.pokemon.push(poke);
                   }
@@ -94,15 +93,43 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.addPokemon(poke);
   }
 
-  /* Receive an array with the abilities of a Pokemon and 
-  push them into a single string array with the name of each ability
-  */
+  /**
+   * Get the array of abilities name of a Pokemon
+   * @param abilities list to extract their name
+   */
   getAbilitiesName(abilities: Array<any>) {
     let abilitiesName = [];
     for (let i = 0; i < abilities.length; i++) {
       abilitiesName.push(abilities[i]['ability'].name);
     }
     return abilitiesName;
+  }
+
+
+  getPokemonForms(name: string, sprites: Array<any>, types: Array<any>) {
+    let pokemonForms = [];
+    let defaultForm = {
+      "region": "default",
+      "sprites": {
+        "normal": sprites['front_default'],
+        "shiny": sprites['front_shiny'],
+        "female": sprites['front_female'] == null ? "" : sprites['front_female']
+      },
+      "type1": types[0].type.name,
+      "type2": types[1] == undefined ? "" : types[1].type.name
+    }
+    pokemonForms.push(defaultForm);
+    // Get other forms
+    this.pokemonService.getPokemonForms().subscribe(
+      form => {
+        let otherForm = form[name];
+        if (otherForm != undefined) {
+          let alolaForm = otherForm[0]
+          pokemonForms.push(alolaForm);
+        }
+      }
+    )
+    return pokemonForms;
   }
 
 }

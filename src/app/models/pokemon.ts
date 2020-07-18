@@ -1,7 +1,8 @@
+import {PokemonForm} from './pokemonForm';
+
 export class Pokemon {
     id: number;
     name: string;
-    sprite: string;
     hatched: boolean;
     nature: string;
     eggsHatched: number;
@@ -11,7 +12,6 @@ export class Pokemon {
     sex: string;
     ability: string;
     abilities: Array<string>;
-    type1: string;
-    type2: string;
+    forms: Array<PokemonForm>
 }
 

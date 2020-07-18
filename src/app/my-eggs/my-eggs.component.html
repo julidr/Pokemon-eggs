@@ -70,7 +70,7 @@
           <div class="col s12 m4 l4" *ngFor="let poke of babyCrib | filterBy: babyCribFilter | sortBy: ['name', sortDirection]">
             <div class="card">
               <div class="waves-effect waves-block waves-light center">
-                <img class="responsive-img" src="{{ poke.sprite }}">
+                <img class="responsive-img" src="{{ poke.forms[0].sprites.normal }}">
               </div>
               <div class="card-content center">
                 <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}
@@ -80,11 +80,11 @@
                 </span>
                 <div class="types">
                   <div class="row">
-                    <div class="col s6 m6 l6" [ngClass]="{'s12 m12 l12': poke.type2==''}">
-                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.type1}}.png">
+                    <div class="col s6 m6 l6" [ngClass]="{'s12 m12 l12': poke.forms[0].type2==''}">
+                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.forms[0].type1}}.png">
                     </div>
-                    <div class="col s6 m6 l6" *ngIf="poke.type2!=''">
-                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.type2}}.png">
+                    <div class="col s6 m6 l6" *ngIf="poke.forms[0].type2!=''">
+                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.forms[0].type2}}.png">
                     </div>
                   </div>
                 </div>
