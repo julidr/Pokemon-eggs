@@ -2,6 +2,7 @@
     "rattata": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/19-alola.png",
@@ -14,6 +15,7 @@
     "raticate": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/20-alola.png",
@@ -26,6 +28,7 @@
     "raichu": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/26-alola.png",
@@ -38,6 +41,7 @@
     "sandshrew": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/27-alola.png",
@@ -50,6 +54,7 @@
     "sandslash": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/28-alola.png",
@@ -62,6 +67,7 @@
     "vulpix": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/37-alola.png",
@@ -74,6 +80,7 @@
     "ninetales": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/38-alola.png",
@@ -86,6 +93,7 @@
     "diglett": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/50-alola.png",
@@ -98,6 +106,7 @@
     "dugtrio": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/51-alola.png",
@@ -110,6 +119,7 @@
     "meowth": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/52-alola.png",
@@ -122,6 +132,7 @@
     "persian": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/53-alola.png",
@@ -134,6 +145,7 @@
     "geodude": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/74-alola.png",
@@ -146,6 +158,7 @@
     "graveler": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/75-alola.png",
@@ -158,6 +171,7 @@
     "golem": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/76-alola.png",
@@ -170,6 +184,7 @@
     "grimer": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/88-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/88-alola.png",
@@ -182,6 +197,7 @@
     "muk": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/89-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/89-alola.png",
@@ -194,6 +210,7 @@
     "exeggutor": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/103-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/103-alola.png",
@@ -206,6 +223,7 @@
     "marowak": [
         {
             "region": "alola",
+            "active": false,
             "sprites": {
                 "normal": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105-alola.png",
                 "shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/105-alola.png",

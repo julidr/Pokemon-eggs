@@ -69,8 +69,10 @@
         <div class="row">
           <div class="col s12 m4 l4" *ngFor="let poke of babyCrib | filterBy: babyCribFilter | sortBy: ['name', sortDirection]">
             <div class="card">
-              <div class="waves-effect waves-block waves-light center">
-                <img class="responsive-img" src="{{ poke.forms[0].sprites.normal }}">
+              <div class="waves-effect waves-block waves-light center" >
+                <ng-container *ngFor="let form of poke.forms">
+                  <img class="responsive-img" src="{{ form.sprites.normal }}" *ngIf="form.active">
+                </ng-container>
               </div>
               <div class="card-content center">
                 <span class="card-title grey-text text-darken-4 poke-display font-bold">{{ poke.name }}
@@ -80,12 +82,16 @@
                 </span>
                 <div class="types">
                   <div class="row">
-                    <div class="col s6 m6 l6" [ngClass]="{'s12 m12 l12': poke.forms[0].type2==''}">
-                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.forms[0].type1}}.png">
-                    </div>
-                    <div class="col s6 m6 l6" *ngIf="poke.forms[0].type2!=''">
-                      <img class = "poke-type" src="./../assets/images/type-icons/{{poke.forms[0].type2}}.png">
-                    </div>
+                    <ng-container *ngFor="let form of poke.forms">
+                      <ng-container *ngIf="form.active">
+                        <div class="col s6 m6 l6" [ngClass]="{'s12 m12 l12': form.type2==''}">
+                          <img class = "poke-type" src="./../assets/images/type-icons/{{form.type1}}.png">
+                        </div>
+                        <div class="col s6 m6 l6" *ngIf="form.type2!=''">
+                          <img class = "poke-type" src="./../assets/images/type-icons/{{form.type2}}.png">
+                        </div>
+                      </ng-container>
+                    </ng-container>
                   </div>
                 </div>
                 <div class="chip red-chip right natureChip">

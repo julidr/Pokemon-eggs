@@ -1,5 +1,6 @@
 export class PokemonForm {
     region: string;
+    active: boolean;
     sprites: {
         normal: string;
         shiny: string;

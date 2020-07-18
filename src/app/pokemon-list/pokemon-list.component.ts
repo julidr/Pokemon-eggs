@@ -110,6 +110,7 @@ export class PokemonListComponent implements OnInit {
     let pokemonForms = [];
     let defaultForm = {
       "region": "default",
+      "active": true,
       "sprites": {
         "normal": sprites['front_default'],
         "shiny": sprites['front_shiny'],
